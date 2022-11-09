@@ -9,7 +9,7 @@ router.post('/register',async(req,res)=>{
       res.status(400);
       throw new Error("please Enter all the Field")
   }
-  const userExists = await User.findOne({email});
+  const userExists = await User.findOne({name});
   if(userExists){
       res.status(400).send('user already exists')
   }
@@ -34,8 +34,8 @@ router.post('/register',async(req,res)=>{
 })
 
 router.post('/login',async(req,res)=>{
-    const {email,password}=req.body;
-    const user = await User.findOne({email});
+    const {name,password}=req.body;
+    const user = await User.findOne({name});
   
     if(user && (await user.matchPassword(password))){
         res.json({
