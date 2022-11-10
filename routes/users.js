@@ -44,6 +44,7 @@ router.post('/login',async(req,res)=>{
             name:user.name,
             email:user.email,
             pic:user.pic,
+            role:user.role,
         })
     }else{
         res.status(400).send('Invalid Email and Password')

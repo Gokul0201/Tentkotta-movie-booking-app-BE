@@ -11,6 +11,7 @@ connectDb()
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var paymentsRouter = require('./routes/payments');
 
 var app = express();
 
@@ -28,7 +29,7 @@ app.use(cors({
 }));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
+app.use('/api/payment',paymentsRouter)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

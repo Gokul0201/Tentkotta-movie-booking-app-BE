@@ -11,9 +11,11 @@ router.get('/',async(req,res)=>{
 router.post('/postmovie',async(req,res)=>{
   let data = await Movie.create(req.body);
   if(data){
-    res.status(201).json({
+    rs.status(201).json({
       message:'Movie Created Successfully',
       data
+      
+
   })
   }
 })
